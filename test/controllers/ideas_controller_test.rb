@@ -35,7 +35,18 @@ class Api::V1::IdeasControllerTest < ActionController::TestCase
 
     delete :destroy, id: idea.id, format: :json
 
-    assert_response 201
+    assert_response 204
     assert 0, Idea.count
+  end
+
+  test "#update modifies the attributes of the idea" do
+    idea = Idea.create(title: "Idea1", body: "This is the body of number 1",  quality: 1)
+
+    get :update, id: idea.id, format: :json, idea: { title: "New_idea", body: "New_body" }
+    parsed_idea = JSON.parse(response.body)
+
+    assert_response 200
+    assert_equal "New_idea", parsed_idea["title"]
+    assert_equal "New_body", parsed_idea["body"]
   end
 end
