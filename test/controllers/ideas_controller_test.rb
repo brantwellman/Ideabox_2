@@ -29,4 +29,13 @@ class Api::V1::IdeasControllerTest < ActionController::TestCase
     assert_response 201
     assert_equal "Idea1", parsed_idea["title"]
   end
+
+  test "#destroy removes the idea from the database" do
+    idea = Idea.create(title: "Idea1", body: "This is the body of number 1",  quality: 1)
+
+    delete :destroy, id: idea.id, format: :json
+
+    assert_response 201
+    assert 0, Idea.count
+  end
 end

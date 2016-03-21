@@ -11,8 +11,9 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def destroy
-    idea = Idea.find(params[:id])
-    respond_with idea.delete
+    idea = Idea.destroy(params[:id])
+    respond_with :api, :v1, idea
+    # respond_with idea.delete
   end
 
   def update
