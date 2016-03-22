@@ -13,3 +13,63 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function() {
+  getAllIdeas();
+})
+
+// Get all Ideas
+function getAllIdeas() {
+  $.ajax({
+    type: 'GET',
+    url: 'api/v1/ideas',
+    success: function(ideas) {
+      $.each(ideas, function(index, idea){
+        renderIdea(idea)
+      })
+    }
+  })
+}
+
+function renderIdea(idea) {
+  console.log(idea);
+  var trimmedBody = idea.body.substring(0, 100)
+  $('#all-ideas').prepend(
+    "<div class='idea'>"
+    + "<h3>" + idea.title + "</h3>"
+    + "<h4>Idea Quality: " + idea.quality + "</h4>"
+    + "<p>" + trimmedBody + "</p>"
+    + "</div>"
+  )
+}
+
+function truncateBody(string) {
+  return string.substring(0, 100)
+}
+
+// Create Idea
+$("#create-button").on('click', function() {
+  var ideaParams = {
+      title: $('#title').val(),
+      body: $('#body').val()
+    }
+
+  $.ajax({
+    type: 'POST',
+    url: '/api/v1/ideas',
+    data: ideaParams,
+    success: function(newIdea) {
+      renderIdea(newIdea)
+      clearForm()
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText)
+    }
+  })
+
+  function clearForm() {
+    $("#title").val('')
+    $("#body").val('')
+  }
+})
