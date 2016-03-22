@@ -10,6 +10,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'pg'
 gem 'pry'
+gem 'responders', '~> 2.0'
+
 group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails', '~> 4.0'
