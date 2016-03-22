@@ -36,10 +36,11 @@ function renderIdea(idea) {
   console.log(idea);
   var trimmedBody = idea.body.substring(0, 100)
   $('#all-ideas').prepend(
-    "<div class='idea'>"
+    "<div class='idea' data-id=" + idea.id + " id=idea-" + idea.id + ">"
     + "<h3>" + idea.title + "</h3>"
     + "<h4>Idea Quality: " + idea.quality + "</h4>"
     + "<p>" + trimmedBody + "</p>"
+    + "<button id=delete-idea" + " name='button-delete' class='button btn-default btn-xs'>Delete</button>"
     + "</div>"
   )
 }
@@ -72,4 +73,20 @@ $("#create-button").on('click', function() {
     $("#title").val('')
     $("#body").val('')
   }
+})
+
+// Delete Idea
+$('#all-ideas').delegate("#delete-idea", 'click', function() {
+  var $idea = $(this).closest(".idea")
+
+  $.ajax({
+    type: 'DELETE',
+    url: '/api/v1/ideas/' + $idea.attr('data-id') + ".json",
+    success: function(){
+      $idea.remove()
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText)
+    }
+  })
 })
