@@ -21,5 +21,5 @@ $(document).ready(function() {
   editIdeaBody()
   upVoteIdea()
   downVoteIdea()
-  renderNewQuality()
+  filterIdeas()
 })
