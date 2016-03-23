@@ -16,8 +16,10 @@
 
 
 $(document).ready(function() {
-  getAllIdeas().then(renderIdeas);
-  editIdeaTitle();
-  editIdeaBody();
-  upVoteIdea();
+  getAllIdeas().then(renderIdeas)
+  editIdeaTitle()
+  editIdeaBody()
+  upVoteIdea()
+  downVoteIdea()
+  renderNewQuality()
 })

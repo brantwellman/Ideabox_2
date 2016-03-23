@@ -11,9 +11,9 @@ function upVoteIdea() {
 
 function newUpQuality(quality) {
   var ideaParams = { quality: "genius" }
-  if (quality === "swill") {
+  if (quality == "swill") {
     ideaParams = { quality: "plausible" }
-  } else if (quality === "plausible") {
+  } else if (quality == "plausible") {
     ideaParams = { quality: "genius" }
   }
   return ideaParams
@@ -25,9 +25,4 @@ function updateUpQuality(ideaParams, $idea) {
     url: '/api/v1/ideas/' + $idea.attr('data-id'),
     data: ideaParams
   })
-}
-
-function renderNewQuality(ideaQuality, idea) {
-  var updatedQuality = ideaQuality["quality"]
-  $(idea).find('#idea-quality').replaceWith("<h4 id=idea-quality> Idea Quality: " + updatedQuality + "</h4>")
 }
