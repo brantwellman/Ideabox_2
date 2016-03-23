@@ -18,10 +18,8 @@ class Api::V1::IdeasControllerTest < ActionController::TestCase
   end
 
   test "#create adds a new idea to the database" do
-    idea = { title: "Idea1", body: "This is the body of number 1",  quality: 1 }
-
     assert_difference 'Idea.count', 1 do
-      post :create, idea: idea, format: :json
+      post :create, title: "Idea1", body: "This is the body of number 1",  quality: 0, format: :json
     end
 
     parsed_idea = JSON.parse(response.body)
@@ -42,7 +40,7 @@ class Api::V1::IdeasControllerTest < ActionController::TestCase
   test "#update modifies the attributes of the idea" do
     idea = Idea.create(title: "Idea1", body: "This is the body of number 1",  quality: 1)
 
-    get :update, id: idea.id, format: :json, idea: { title: "New_idea", body: "New_body" }
+    get :update, id: idea.id, format: :json, title: "New_idea", body: "New_body"
     parsed_idea = JSON.parse(response.body)
 
     assert_response 200
