@@ -9,7 +9,7 @@ $("#create-button").on('click', function() {
 
   $.post('/api/v1/ideas', ideaParams).then(renderIdea)
                                      .then(clearForm)
-                                    //  .fail(handeError)
+                                    //  .fail(handleError)
 })
 
 function clearForm() {
