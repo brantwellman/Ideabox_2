@@ -36,7 +36,6 @@ function editIdeaBody(){
   })
 }
 
-
 // function editIdea(){
 //   var saveButton = '<button type="button" class="button" id="save-edit-button">Save</button>'
 //   $('#all-ideas').on('click', "#edit-idea", function() {
