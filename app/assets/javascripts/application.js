@@ -19,4 +19,5 @@ $(document).ready(function() {
   getAllIdeas().then(renderIdeas);
   editIdeaTitle();
   editIdeaBody();
+  upVoteIdea();
 })
