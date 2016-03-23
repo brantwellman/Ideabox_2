@@ -8,7 +8,7 @@ function renderIdeas(ideas) {
 
 function renderIdea(idea) {
   console.log(idea);
-  var trimmedBody = idea.body.substring(0, 100)
+  var trimmedBody = truncateBody(idea.body)
   $('#all-ideas').prepend(
     "<div class='idea' data-id=" + idea.id + " id=idea-" + idea.id + ">"
     + "<h3 class='title' id=idea-title-" + idea.id + ">" + idea.title + "</h3>"
@@ -22,5 +22,5 @@ function renderIdea(idea) {
 }
 
 function truncateBody(string) {
-  return string.substring(0, 100)
+  return string.split(" ").slice(0, -1).join(" ")
 }
