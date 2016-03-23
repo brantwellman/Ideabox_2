@@ -1,11 +1,11 @@
 function editIdeaTitle(){
   $('#all-ideas').on('click', ".title", function() {
     var $idea = $(this).closest(".idea")
-    $($idea).children('h3').attr('contentEditable', 'true')
+    $(this).attr('contentEditable', 'true')
 
     $(".title").bind('keydown focusout', function(e) {
       if(e.keyCode == 13) {
-        $($idea).children('h3').attr('contentEditable', 'false')
+        $(this).attr('contentEditable', 'false')
       }
       var ideaParams = { title: $($idea).children('h3').text() }
       $.ajax({
@@ -20,11 +20,11 @@ function editIdeaTitle(){
 function editIdeaBody(){
   $('#all-ideas').on('click', ".body", function() {
     var $idea = $(this).closest(".idea")
-    $($idea).children('p').attr('contentEditable', 'true')
+    $(this).attr('contentEditable', 'true')
 
     $(".body").bind('keydown focusout', function(e) {
       if(e.keyCode == 13) {
-        $($idea).children('p').attr('contentEditable', 'false')
+        $(this).attr('contentEditable', 'false')
       }
       var ideaParams = { body: $($idea).children('p').text() }
       $.ajax({
@@ -35,6 +35,51 @@ function editIdeaBody(){
     })
   })
 }
+
+
+// Refactoring Above to be this
+
+// function editIdeaBody(){
+//   $('#all-ideas').on('click', ".body", function() {
+//     var $idea = $(this).closest(".idea")
+//     // $($idea).children('p').attr('contentEditable', 'true')
+//
+//     $(this).attr('contentEditable', 'true')
+//
+//     $(".body").bind('keydown focusout', function(e) {
+//       if(e.keyCode == 13) {
+//         $($idea).children('p').attr('contentEditable', 'false')
+//       }
+//       var ideaParams = { body: $($idea).children('p').text() }
+//       $.ajax({
+//         type: 'PUT',
+//         url: '/api/v1/ideas/' + $idea.attr('data-id'),
+//         data: ideaParams
+//       })
+//     })
+//   })
+//   $('#all-ideas').on('click', ".title", function() {
+//     var $idea = $(this).closest(".idea")
+//     // $($idea).children('h3').attr('contentEditable', 'true')
+//
+//     $(this).attr('contentEditable', 'true')
+//
+//     $(".title").bind('keydown focusout', function(e) {
+//       if(e.keyCode == 13) {
+//         $($idea).children('h3').attr('contentEditable', 'false')
+//       }
+//       var ideaParams = { title: $($idea).children('h3').text() }
+//       $.ajax({
+//         type: 'PUT',
+//         url: '/api/v1/ideas/' + $idea.attr('data-id'),
+//         data: ideaParams
+//       })
+//     })
+//   })
+// }
+
+
+// Inline Editing Triggered by Edit Button
 
 // function editIdea(){
 //   var saveButton = '<button type="button" class="button" id="save-edit-button">Save</button>'
