@@ -15,8 +15,8 @@ function renderIdea(idea) {
     + "<h4 id=idea-quality>Idea Quality: " + idea.quality + "</h4>"
     + "<p class=body id=idea-body-" + idea.id + ">" + trimmedBody + "</p>"
     + "<button id=delete-idea name='button-delete' class='button btn-default btn-xs'>Delete</button>"
-    + "<button id=upvote-idea name='button-upvote' class='button btn-default btn-xs'>Up Vote!</button>"
-    + "<button id=downvote-idea name='button-downvote' class='button btn-default btn-xs'>Down Vote?</button>"
+    + "<button id=upvote-idea name='button-upvote' class='button btn-default btn-xs'>Thumbs Up!</button>"
+    + "<button id=downvote-idea name='button-downvote' class='button btn-default btn-xs'>Thumbs Down?</button>"
     + "</div>"
   )
 }

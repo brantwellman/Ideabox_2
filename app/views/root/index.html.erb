@@ -7,9 +7,10 @@
   <%= form_tag '/api/v1/ideas' do %>
     <%= label_tag 'Title', nil, id: "form-title" %>
     <%= text_field_tag 'title'%>
-
+    </br>
     <%= label_tag 'Body', nil, id: "form-body" %>
     <%= text_field_tag 'body' %>
+    </br>
     <button type="button" class='button' id='create-button'>Save</button>
   <% end %>
 </div>
