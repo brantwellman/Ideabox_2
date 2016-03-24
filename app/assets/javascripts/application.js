@@ -22,4 +22,6 @@ $(document).ready(function() {
   upVoteIdea()
   downVoteIdea()
   filterIdeas()
+  createIdea()
+  deleteIdea()
 })

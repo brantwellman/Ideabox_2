@@ -4,7 +4,7 @@ function upVoteIdea() {
     var quality = $idea.find("#idea-quality").html().split(" ")[2]
 
     var params = newUpQuality(quality)
-    updateUpQuality(params, $idea)
+    updateQuality(params, $idea)
     renderNewQuality(params, $idea)
   })
 }
@@ -17,12 +17,4 @@ function newUpQuality(quality) {
     ideaParams = { quality: "genius" }
   }
   return ideaParams
-}
-
-function updateUpQuality(ideaParams, $idea) {
-  $.ajax({
-    type: 'PUT',
-    url: '/api/v1/ideas/' + $idea.attr('data-id'),
-    data: ideaParams
-  })
 }
