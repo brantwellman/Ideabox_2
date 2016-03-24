@@ -7,7 +7,11 @@ class Api::V1::IdeasController < ApplicationController
 
   def create
     idea = Idea.create(idea_params)
-    respond_with :api, :v1, idea
+    if idea.save
+      respond_with :api, :v1, idea
+    else
+      respond_with @idea.errors.full_messages.join(", ")
+    end
   end
 
   def destroy
