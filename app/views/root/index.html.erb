@@ -1,27 +1,32 @@
-<div class="col-md-4 col-md-offset-4">
+<div class="col-lg-6 col-lg-offset-3 col-md-4 col-md-offset-4 text-center idea-header">
   <h1>The IdeaBox</h1>
 </div>
 
-<div class="col-md-4 col-md-offset-4">
-  <h2>Add a New Idea</h2>
-  <%= form_tag '/api/v1/ideas' do %>
-    <%= label_tag 'Title', nil, id: "form-title" %>
-    <%= text_field_tag 'title'%>
-    </br>
-    <%= label_tag 'Body', nil, id: "form-body" %>
-    <%= text_field_tag 'body' %>
-    </br>
-    <button type="button" class='button' id='create-button'>Save</button>
-  <% end %>
+<div class="col-lg-6 col-lg-offset-3 col-md-4 col-md-offset-4 new-form">
+  <h2 class='form-header text-center'>Add a New Idea</h2>
+  <div class="form text-center">
+    <%= form_tag '/api/v1/ideas' do %>
+      <%= label_tag 'Title', nil, id: "form-title", class: 'text-center' %>
+      <%= text_field_tag 'title'%>
+      </br>
+      <%= label_tag 'Body', nil, id: "form-body" %>
+      <%= text_field_tag 'body' %>
+      </br>
+      <button type="button" class='btn btn-info btn-block' id='create-button'>Save</button>
+    <% end %>
+  </div>
 </div>
 
-<div class="filter col-md-4 col-md-offset-4">
-  <%= label_tag 'Search' %>
-  <%= text_field :idea, :filter %>
+<div class="filter col-lg-6 col-lg-offset-3 col-md-4 col-md-offset-4">
+  <h2 class='text-center'>Search the Ideas</h2>
+  <div class="search text-center">
+    <%= label_tag 'Search' %>
+    <%= text_field :idea, :filter %>
+  </div>
 </div>
 
-<div class="col-md-4 col-md-offset-4">
-  <h2>All of the Ideas</h2>
+<div class="col-lg-6 col-lg-offset-3 col-md-4 col-md-offset-4 idea-list">
+  <h2 class='text-center all-header'>All of the Ideas</h2>
   <div id="all-ideas">
   </div>
 </div>
