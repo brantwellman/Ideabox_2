@@ -15,7 +15,8 @@ gem 'responders', '~> 2.0'
 group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
   gem 'capybara'
   gem 'launchy'
 end
