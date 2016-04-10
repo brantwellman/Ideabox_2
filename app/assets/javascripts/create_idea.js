@@ -6,15 +6,14 @@ function createIdea() {
     var ideaParams = {
         title: $newIdeaTitle.val(),
         body: $newIdeaBody.val()
-      }
+      };
 
     $.post('/api/v1/ideas', ideaParams).then(renderIdea)
-                                       .then(clearForm)
-                                      //  .fail(handleError)
-  })
+                                       .then(clearForm);
+  });
 }
 
 function clearForm() {
-  $newIdeaTitle.val('')
-  $newIdeaBody.val('')
+  $newIdeaTitle.val('');
+  $newIdeaBody.val('');
 }
